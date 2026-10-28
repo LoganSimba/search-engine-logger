@@ -12,23 +12,9 @@ public class SearchEngineLogger {
     public static void main(String[] args) {
         //created a scanner
         Scanner scanner = new Scanner(System.in);
+        //call the method to run the application
+        applicationRunning(scanner);
 
-        // boolean to track if the app continues running
-        boolean appRunning = true;
-        loggingAction("launch");
-        while(appRunning){
-            System.out.println("Enter a search term(x to exit): ");
-            String search = scanner.nextLine();
-
-            if(search.equalsIgnoreCase("x")){
-                loggingAction("exit");
-                appRunning = false;
-                break;
-            }
-            else{
-                loggingAction("search: " + search);
-            }
-        }
 
         }
         //created a method for logging
@@ -49,6 +35,26 @@ public class SearchEngineLogger {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+        }
+
+        // added a method that runs the application until exit option
+        public static void applicationRunning(Scanner scanner){
+            // boolean to track if the app continues running
+            boolean appRunning = true;
+            loggingAction("launch");
+            while(appRunning){
+                System.out.println("Enter a search term(x to exit): ");
+                String search = scanner.nextLine();
+                //if statement to check if they typed x so we exit the application
+                if(search.equalsIgnoreCase("x")){
+                    loggingAction("exit");
+                    appRunning = false;
+                    break;
+                }
+                else{
+                    loggingAction("search: " + search);
+                }
+            }
         }
 
 
